@@ -1,0 +1,10 @@
+
+.navi {
+    margin-left: 5rem;
+}
+
+.archived-habit-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

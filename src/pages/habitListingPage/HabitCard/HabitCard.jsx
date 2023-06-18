@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./HabitCard.css";
 import { ACTIONS, HabitContext } from "../../../context/HabitProvider";
 import { HabitForm } from "../HabitForm/HabitForm";
+import { EditForm } from "../EditForm/EditForm";
 
 export function HabitCard({habit}) {
 
@@ -38,7 +39,7 @@ const {SET_HABITS, ADD_NEW_HABIT, ADD_TO_ARCHIVE} = ACTIONS;
                 </div>
 
                 {formVisible && <div className="edit-form">
-                    <HabitForm formType={habit.name} />
+                    <EditForm formType={habit.name} setformVisible={setformVisible} habitData={habit}/>
                 </div>}
             </div>
         </>
