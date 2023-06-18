@@ -13,6 +13,8 @@ const {SET_HABITS, ADD_NEW_HABIT, ADD_TO_ARCHIVE} = ACTIONS;
 
     const [formVisible, setformVisible] = useState(false);
 
+    const [habitdetailsshow, setHabitdetailsshow] = useState(false)
+
     const archiveHandler =(id) => {
         dispatchHabit({type: ADD_TO_ARCHIVE, payload: habitState.habits.find(({_id}) => _id === id)});
         dispatchHabit({type: SET_HABITS, payload: habitState.habits.filter(({_id}) => _id !== id)});
@@ -24,13 +26,18 @@ const {SET_HABITS, ADD_NEW_HABIT, ADD_TO_ARCHIVE} = ACTIONS;
 
 
 
+
     return (
         <>
-            <div className="habitcard-container">
+            <div className="habitcard-container" onClick={() => setHabitdetailsshow(!habitdetailsshow)}>
                 
                <div className="habit-heading">
                <h2>{habit.name}</h2>
                </div>
+
+                {habitdetailsshow && <div className="habit-detail">
+                    <p>Repeat: {habit.repeat} | Goal: {habit.goal} | Time of the day: {habit.timeoftheday} | Start date: {habit.startdate}</p>
+                </div>}
 
                <div className="action-btns">
                     <button onClick={() => setformVisible(true)}>Edit</button>
