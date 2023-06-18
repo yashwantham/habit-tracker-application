@@ -8,11 +8,15 @@
     box-sizing: border-box;
     padding: 0.2rem 1rem;
     margin: 2rem;
-    cursor: pointer;
+    
 }
 
 .edit-form {
     border: 2px solid black;
     margin: 5rem 0;
     color: black;
+}
+
+.habit-heading {
+    cursor: pointer;
 }

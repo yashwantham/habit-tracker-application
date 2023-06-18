@@ -29,9 +29,9 @@ const {SET_HABITS, ADD_NEW_HABIT, ADD_TO_ARCHIVE} = ACTIONS;
 
     return (
         <>
-            <div className="habitcard-container" onClick={() => setHabitdetailsshow(!habitdetailsshow)}>
+            <div className="habitcard-container" >
                 
-               <div className="habit-heading">
+               <div className="habit-heading" onClick={() => setHabitdetailsshow(!habitdetailsshow)}>
                <h2>{habit.name}</h2>
                </div>
 
