@@ -21,7 +21,7 @@ export const habits = [
     _id: uuid(),
     name: "Drink Water",
     repeat: "daily",
-    goal: "12 time a day",
+    goal: "12 times a day",
     timeoftheday: "anytime",
     startdate: "today",
   },

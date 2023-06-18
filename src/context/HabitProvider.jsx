@@ -1,11 +1,13 @@
 import { createContext, useEffect, useReducer } from "react"
 import { habits } from "../db/habits";
+import { v4 as uuid } from "uuid";
 
-const ACTIONS = {
-    SET_HABITS: "set_habits"
+export const ACTIONS = {
+    SET_HABITS: "set_habits",
+    ADD_NEW_HABIT: "add_new_habit"
 }
 
-const {SET_HABITS} = ACTIONS;
+const {SET_HABITS, ADD_NEW_HABIT} = ACTIONS;
 
 export const HabitContext = createContext();
 
@@ -17,6 +19,10 @@ export function HabitProvider({children}) {
 
             case SET_HABITS: {
                 return {habits: [...action.payload]}
+            }
+
+            case ADD_NEW_HABIT: {
+                return {habits: [...state.habits, {...action.payload, _id: uuid()}]}
             }
 
             default: {
@@ -37,7 +43,7 @@ export function HabitProvider({children}) {
 
     return (
         <>
-           <HabitContext.Provider value={{habitState}}>{children}</HabitContext.Provider> 
+           <HabitContext.Provider value={{habitState, dispatchHabit}}>{children}</HabitContext.Provider> 
         </>
     )
 }
